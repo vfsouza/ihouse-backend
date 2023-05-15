@@ -8,6 +8,5 @@ namespace ihouse.Database {
 		: base(options) { }
 
 		public DbSet<User> Users { get; set; }
-		public DbSet<Janela> Janela { get; set; }
 	}
 }

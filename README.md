@@ -71,5 +71,3 @@
 	<br>
 	Deleta o usuário do ID informado.
 </details>
-
-https://localhost:7185/

@@ -28,12 +28,18 @@ namespace ihouse_backend.Controllers {
 		}
 
 		// GET: api/Users/5
-		[HttpGet("{id}")]
-		public async Task<ActionResult<User>> GetUser(int id) {
+		[HttpGet("{email}")]
+		public async Task<ActionResult<User>> GetUser(string email) {
 			if (_context.Users == null) {
 				return NotFound();
 			}
-			var user = await _context.Users.FindAsync(id);
+			var users = await _context.Users.ToListAsync();
+			User user = null;
+			foreach (User u in users) {
+				if (u.Email == email) {
+					user = u; break;
+				}
+			}
 
 			if (user == null) {
 				return NotFound();
